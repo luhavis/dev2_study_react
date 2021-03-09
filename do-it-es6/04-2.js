@@ -9,5 +9,6 @@ console.log(arr2);
 const obj2 = {};
 obj2['name'] = '내이름';
 Object.assign(obj2, { name: '새이름' });
+console.log(obj2);
 delete obj2.name;
 console.log(obj2);
