@@ -3,6 +3,8 @@ import TodaysPlan from './components/TodaysPlan';
 import PropsComponent from './components/PropsComponent';
 import ChildComponent from './components/ChildComponent';
 import './App.css';
+import BooleanComponent from './components/BooleanComponent';
+import ChildComponent2 from './components/ChildComponent2';
 
 class App extends React.Component {
   render() {
@@ -26,6 +28,16 @@ class App extends React.Component {
             console.log('메세지');
           }}
         />
+
+        <div>
+          <b>지루할 때: </b>
+          <BooleanComponent bored />
+        </div>
+        <div>
+          <b>즐거울 때 : </b> <BooleanComponent />
+        </div>
+
+        <ChildComponent2 objValue={{ age: 20 }} requiredStringValue="문자" />
       </div>
     );
   }
