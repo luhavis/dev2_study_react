@@ -5,6 +5,9 @@ import ChildComponent from './components/ChildComponent';
 import './App.css';
 import BooleanComponent from './components/BooleanComponent';
 import ChildComponent2 from './components/ChildComponent2';
+import DefaultPropsComponent from './components/DefaultPropsComponent';
+import ChildProperty from './components/ChildProperty';
+import StateExample from './components/StateExample';
 
 class App extends React.Component {
   render() {
@@ -38,6 +41,16 @@ class App extends React.Component {
         </div>
 
         <ChildComponent2 objValue={{ age: 20 }} requiredStringValue="문자" />
+
+        <DefaultPropsComponent />
+
+        <ChildProperty>
+          <div>
+            <span>자식 노드!</span>
+          </div>
+        </ChildProperty>
+
+        <StateExample />
       </div>
     );
   }
