@@ -13,6 +13,7 @@ import IncrementComponent from './components/IncrementComponent';
 import LifeCycleExample from './components/LifeCycleExample';
 import CounterComponent from './components/CounterComponent';
 import NewCounter from './components/NewCounter';
+import Input from './components/Input';
 
 class App extends React.Component {
   constructor(props) {
@@ -82,6 +83,8 @@ class App extends React.Component {
         <CounterComponent count={this.state.count} />
         <NewCounter count={this.state.count} />
         <button onClick={this.resetCount}>{this.state.count + 10} 으로 초기화</button>
+
+        <Input type={'text'} name={'dfdf'} errorMessage={'에러!'} autoFocus />
       </div>
     );
   }
