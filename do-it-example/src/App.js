@@ -10,8 +10,26 @@ import ChildProperty from './components/ChildProperty';
 import StateExample from './components/StateExample';
 import ForceUpdate from './components/ForceUpdate';
 import IncrementComponent from './components/IncrementComponent';
+import LifeCycleExample from './components/LifeCycleExample';
+import CounterComponent from './components/CounterComponent';
+import NewCounter from './components/NewCounter';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { hasDestoryed: false, count: 10 };
+    this.resetCount = this.resetCount.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ hasDestoryed: true, count: 0 });
+  }
+
+  resetCount() {
+    this.setState(({ count }) => ({ count: count + 10 }));
+  }
+
   render() {
     return (
       // 아래의 내용이 JSX 양식 입니다.
@@ -57,6 +75,13 @@ class App extends React.Component {
         {/* <ForceUpdate /> */}
 
         <IncrementComponent />
+
+        <div>{this.state.hasDestoryed ? null : <LifeCycleExample />}</div>
+
+        <CounterComponent count={1} />
+        <CounterComponent count={this.state.count} />
+        <NewCounter count={this.state.count} />
+        <button onClick={this.resetCount}>{this.state.count + 10} 으로 초기화</button>
       </div>
     );
   }
