@@ -8,6 +8,8 @@ import ChildComponent2 from './components/ChildComponent2';
 import DefaultPropsComponent from './components/DefaultPropsComponent';
 import ChildProperty from './components/ChildProperty';
 import StateExample from './components/StateExample';
+import ForceUpdate from './components/ForceUpdate';
+import IncrementComponent from './components/IncrementComponent';
 
 class App extends React.Component {
   render() {
@@ -51,6 +53,10 @@ class App extends React.Component {
         </ChildProperty>
 
         <StateExample />
+
+        {/* <ForceUpdate /> */}
+
+        <IncrementComponent />
       </div>
     );
   }
