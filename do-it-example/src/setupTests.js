@@ -4,8 +4,14 @@
 // learn more: https://github.com/testing-library/jest-dom
 // import '@testing-library/jest-dom';
 import { configure } from 'enzyme';
-
 import Adapter from 'enzyme-adapter-react-16.3';
+import * as Aphrodite from 'aphrodite';
+import * as AphroditeNoImportant from 'aphrodite/no-important';
+
+// querySelector 기능을 건너뛰도록 설정
+// 아프로디테의 DOM 호출 과정을 중지
+Aphrodite.StyleSheetTestUtils.suppressStyleInjection();
+AphroditeNoImportant.StyleSheetTestUtils.suppressStyleInjection();
 
 configure({ adapter: new Adapter() });
 
