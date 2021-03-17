@@ -15,6 +15,9 @@ import CounterComponent from './components/CounterComponent';
 import NewCounter from './components/NewCounter';
 import Input from './components/Input';
 
+// import './materialize.css';
+import './sass/materialize.scss';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +38,13 @@ class App extends React.Component {
     return (
       // 아래의 내용이 JSX 양식 입니다.
       <div>
+        <nav>
+          <div className="nav-wrapper">
+            <div>리액트 시작하기!</div>
+          </div>
+        </nav>
+        <h1>Material CSS</h1>
+
         <img src="http://www.easyspub.co.kr/images/logo_footer.png" />
         <div>안녕하세요</div>
 
