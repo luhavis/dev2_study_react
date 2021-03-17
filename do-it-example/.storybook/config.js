@@ -3,7 +3,11 @@ import interopRequireDefault from 'babel-runtime/helpers/interopRequireDefault';
 import JSXAddon from 'storybook-addon-jsx';
 
 function loadStories() {
-  require('../src/stories/InputStory');
+  const context = require.context('../src/stories', true, /Story\.jsx$/);
+  // require('../src/stories/InputStory');
+  context.keys().forEach((srcFile) => {
+    interopRequireDefault(context(srcFile));
+  });
 }
 
 setAddon(JSXAddon);
