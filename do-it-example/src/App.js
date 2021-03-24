@@ -17,6 +17,7 @@ import Input from './components/Input';
 
 // import './materialize.css';
 import './sass/materialize.scss';
+import ReduxApp from './components/Redux01';
 
 class App extends React.Component {
   constructor(props) {
@@ -95,6 +96,8 @@ class App extends React.Component {
         <button onClick={this.resetCount}>{this.state.count + 10} 으로 초기화</button>
 
         <Input type={'text'} name={'dfdf'} errorMessage={'에러!'} autoFocus />
+
+        <ReduxApp />
       </div>
     );
   }
