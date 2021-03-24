@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import configreStore from '../configureStore';
 
 class ReduxApp extends PureComponent {
   store = createStore(
