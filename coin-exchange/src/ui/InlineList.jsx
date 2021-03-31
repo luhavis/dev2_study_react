@@ -30,3 +30,37 @@ class InlineList extends PureComponent {
     );
   }
 }
+
+InlineList.propTypes = {
+  ...spacingPropTypes,
+  align: PropTypes.oneOf(["left", "center", "right"]),
+  verticalAlign: PropTypes.oneOf(["top", "middle", "bottom"]),
+  spacingBetween: PropTypes.number,
+  children: PropTypes.node,
+};
+
+InlineList.defaultProps = {
+  spacingBetween: 1,
+};
+
+export default withStyles(() => ({
+  wrapper: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  alignCenter: {
+    justifyContent: "center",
+  },
+  alignRight: {
+    justifyContent: "flex-end",
+  },
+  verticalAlignTop: {
+    alignItems: "flex-start",
+  },
+  verticalAlignBottom: {
+    justifyContent: "flex-end",
+  },
+}))(InlineList);
