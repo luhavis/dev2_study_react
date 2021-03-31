@@ -36,7 +36,7 @@ export default {
     default: "#333333",
     error: "#e51c23",
   },
-  site: {
+  size: {
     h1: 48,
     h2: 36,
     h3: 28,

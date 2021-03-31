@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 
-storiesOf("Doit-UI/Flex", module)
+storiesOf("UI/Flex", module)
   .addWithJSX("Flex Box Layout 예제", () => (
     <div style={{ display: "flex" }}>
       <div style={{ border: "1px red solid", padding: 30, height: 30 }}>

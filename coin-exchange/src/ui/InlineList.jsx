@@ -1,7 +1,8 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { withStyles, css, withStylesPropTypes } from "./withStyles";
-import unit from "./Theme";
+import { propTypes as spacingPropTypes } from "./Spacing";
+import { unit } from "./Theme";
 
 class InlineList extends PureComponent {
   render() {
@@ -12,7 +13,6 @@ class InlineList extends PureComponent {
       spacingBetween,
       verticalAlign,
     } = this.props;
-
     return (
       <div
         {...css(
@@ -23,9 +23,9 @@ class InlineList extends PureComponent {
           verticalAlign === "bottom" && styles.verticalAlignBottom
         )}
       >
-        {React.Children.map(children, (child) => {
-          <div {...css({ marginRight: spacingBetween * unit })}>{child}</div>;
-        })}
+        {React.Children.map(children, (child) => (
+          <div {...css({ marginRight: spacingBetween * unit })}>{child}</div>
+        ))}
       </div>
     );
   }
@@ -33,6 +33,7 @@ class InlineList extends PureComponent {
 
 InlineList.propTypes = {
   ...spacingPropTypes,
+  ...withStylesPropTypes,
   align: PropTypes.oneOf(["left", "center", "right"]),
   verticalAlign: PropTypes.oneOf(["top", "middle", "bottom"]),
   spacingBetween: PropTypes.number,
@@ -61,6 +62,6 @@ export default withStyles(() => ({
     alignItems: "flex-start",
   },
   verticalAlignBottom: {
-    justifyContent: "flex-end",
+    alignItems: "flex-end",
   },
 }))(InlineList);
