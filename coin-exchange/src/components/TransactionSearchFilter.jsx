@@ -6,12 +6,26 @@ import Text from "../ui/Text";
 import Input from "../ui/Input";
 import Form from "../ui/Form";
 import Select, { Option } from "../ui/Select";
+import Api from "../Api";
 
 class TransactionSearchFilter extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(params) {
+    const { setTransactionList } = this.props;
+    Api.get("/transactions", { params }).then(({ data }) =>
+      setTransactionList(data)
+    );
+  }
+
   render() {
     const { initValues } = this.props;
     return (
-      <Form onSubmit={this.handleSubmit} initValues={initValues}>
+      // <Form onSubmit={this.handleSubmit} initValues={initValues}>
+      <Form onSubmit={(values) => Api.get("/transactions", { params: values })}>
         <Form.Consumer>
           {({ onChange, values }) => (
             <InlineList spacingBetween={2} verticalAlign="bottom">
@@ -52,6 +66,6 @@ class TransactionSearchFilter extends PureComponent {
   }
 }
 
-TransactionSearchFilter.propTypes = {};
+TransactionSearchFilter.propTypes = { setTransactionList: PropTypes.func };
 
 export default TransactionSearchFilter;

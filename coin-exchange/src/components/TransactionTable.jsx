@@ -17,6 +17,7 @@ const LoadingMessage = (
 class TransactionTable extends PureComponent {
   render() {
     const { transactions } = this.props;
+
     return (
       <Table>
         <TableHead>

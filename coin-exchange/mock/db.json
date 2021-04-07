@@ -15,6 +15,12 @@
       "totalPrice": "78000000",
       "currentPrice": "70000000",
       "dateTime": "2021/04/08 13:21:24"
+    },
+    {
+      "currentPrice": "7,216,000원",
+      "amount": "1",
+      "name": "비트코인",
+      "id": 3
     }
   ]
 }
