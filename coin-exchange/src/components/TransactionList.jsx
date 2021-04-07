@@ -5,20 +5,23 @@ import Card from "../ui/Card";
 import TransactionSearchFilter from "./TransactionSearchFilter";
 import TransactionTable from "./TransactionTable";
 import TransactionPagination from "./TransactionPagination";
+import axios from "axios";
+import Api from "../Api";
 
 class TransactionList extends PureComponent {
   state = {
-    transactions: [
-      {
-        id: "btx_01",
-        name: "비트코인(BTX)",
-        totalPrice: "123,123,000,000원",
-        currentPrice: "4,200,000원",
-        datetime: "2019/01/20 08:23:22",
-      },
-    ],
+    transactions: [],
     loading: true,
   };
+
+  componentDidMount() {
+    // axios
+    //   .get("http://localhost:4000/transactions", { params: { code: "BTC" } })
+    //   .then((response) => this.setState({ transactions: response.data }));
+    Api.get("http://localhost:4000/transactions", {
+      params: { code: "BTC" },
+    }).then((response) => this.setState({ transactions: response.data }));
+  }
 
   render() {
     // const { transactions, loading } = this.props;
