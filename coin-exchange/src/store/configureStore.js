@@ -2,6 +2,8 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import reducers from "../reducers";
 import { SET_TRANSACTION_LIST } from "../actions/transactionActions";
+import thunk from "redux-thunk";
+
 const customMiddleware = (store) => (nextRunner) => (action) => {
   console.log("액션 개체", action);
   console.log("리듀서 실행 전", store.getState());
@@ -31,9 +33,18 @@ const customMiddleware1 = () => (nextRunner) => (action) => {
   return nextRunner(action);
 };
 
+const customMiddleware2 = (store) => (nextRunner) => (action) => {
+  console.log("미들웨어2 전달된 액션 개체", action);
+  console.log("미들웨어2 실행 전", store.getState());
+  const result = nextRunner(action);
+  console.log("미들웨어2 실행 후", store.getState());
+  return result;
+};
+
 export default (initState) =>
   createStore(
     combineReducers(reducers),
     initState,
-    applyMiddleware(customMiddleware1)
+    //applyMiddleware(customMiddleware1, customMiddleware2),
+    composeWithDevTools(applyMiddleware(thunk))
   );

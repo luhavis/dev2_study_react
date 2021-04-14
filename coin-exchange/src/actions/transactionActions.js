@@ -8,3 +8,11 @@ export function setTransactionList(transactions) {
     payload: transactions,
   };
 }
+
+export function requestTransactionList(params) {
+  return (dispatch) => {
+    Api.get("/transactions", { params }).then(({ data }) =>
+      dispatch(setTransactionList(data))
+    );
+  };
+}
