@@ -4,10 +4,10 @@ import { requestTransactionList } from "../actions/transactionActions";
 import TransactionList from "../components/TransactionList";
 
 const mapStateToProps = (state) => {
-  const { ids, entities } = state.transactions;
+  const { ids, entities, loading } = state.transactions;
   const transactions = ids.map((id) => entities[id]);
 
-  return { transactions };
+  return { transactions, loading };
 };
 const mapDispatchToProps = {
   // setTransactionList,
