@@ -8,6 +8,8 @@ import MainPage from "./components/MainPage";
 import configureStore from "./store/configureStore";
 import TransactionList from "./components/TransactionList";
 import ModalProvider from "./ModalProvider";
+import NotificationContainer from "./containers/NotificationContainer";
+import TransactionListContainer from "./containers/TransactionListContainer";
 
 class CoinApp extends PureComponent {
   store = configureStore();
@@ -17,7 +19,8 @@ class CoinApp extends PureComponent {
         <ModalProvider>
           <AppLayout>
             <CoinOverview />
-            <TransactionList />
+            <TransactionListContainer />
+            <NotificationContainer />
           </AppLayout>
         </ModalProvider>
       </Provider>

@@ -14,8 +14,9 @@ export function setTransactionList(transactions) {
 export function requestTransactionList(params) {
   return (dispatch) => {
     dispatch(loading());
-    Api.get("/transactions", { params }).then(({ data }) =>
-      dispatch(setTransactionList(data))
+    Api.get("/transactions", { params }).then(
+      ({ data }) => dispatch(setTransactionList(data)),
+      (error) => dispatch(setError(error.response.data.errorMessage))
     );
   };
 }
