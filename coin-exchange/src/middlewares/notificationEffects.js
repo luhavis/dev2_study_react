@@ -4,6 +4,9 @@ import {
   hideMessage,
 } from "../actions/notificationActions";
 import { SET_ERROR } from "../actions/transactionActions";
+import { debounce } from "../lib/debounce";
+
+const debounceRunner = debounce((action) => action(), 4000);
 
 export default (store) => (nextRunner) => (action) => {
   const { type, payload } = action;
@@ -12,7 +15,8 @@ export default (store) => (nextRunner) => (action) => {
     store.dispatch(showMessage(errorMessage, true));
   } else if (type === SHOW_NOTIFICATION) {
     const hide = () => store.dispatch(hideMessage());
-    setTimeout(hide, 4000);
+    //setTimeout(hide, 4000);
+    debounceRunner(hide);
   }
   return nextRunner(action);
 };

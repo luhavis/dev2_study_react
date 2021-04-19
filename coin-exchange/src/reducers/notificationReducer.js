@@ -30,6 +30,6 @@ export default (state = initState, action) => {
       };
     }
     default:
-      return false;
+      return state;
   }
 };
