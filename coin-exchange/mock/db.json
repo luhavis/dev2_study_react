@@ -2,58 +2,21 @@
   "transactions": [
     {
       "id": 1,
-      "code": "BTC",
-      "name": "비트코인(BTC)",
-      "totalPrice": "78000000",
-      "currentPrice": "70000000",
-      "dateTime": "2021/04/08 13:21:24"
+      "code": "BTX",
+      "name": "비트코인(BTX)",
+      "totalPrice": 12391230000,
+      "currentPrice": 1020000,
+      "amount": 0.23,
+      "datetime": "2019/01/20 08:23:22"
     },
     {
       "id": 2,
-      "code": "XRP",
-      "name": "리플(XRP)",
-      "totalPrice": "78000000",
-      "currentPrice": "70000000",
-      "dateTime": "2021/04/08 13:21:24"
-    },
-    {
-      "currentPrice": "7,216,000원",
-      "amount": "1",
-      "name": "비트코인",
-      "id": 3
-    },
-    {
-      "currentPrice": "7,216,000원",
-      "amount": "1",
-      "name": "비트코인",
-      "id": 4
-    },
-    {
-      "currentPrice": "3,216,000원",
-      "amount": "21",
-      "name": "이더리움",
-      "id": 5
-    },
-    {
-      "currentPrice": "15,000원",
-      "amount": "12",
-      "name": "두잇코인",
-      "id": 6
-    },
-    {
-      "currentPrice": "15,000원",
-      "name": "두잇코인",
-      "id": 7
-    },
-    {
-      "currentPrice": "15,000원",
-      "name": "두잇코인",
-      "id": 8
-    },
-    {
-      "currentPrice": "3,216,000원",
-      "name": "이더리움",
-      "id": 9
+      "code": "RXP",
+      "name": "리플(RXP)",
+      "totalPrice": 1230000,
+      "currentPrice": 20000,
+      "amount": 10,
+      "datetime": "2019/01/20 07:23:22"
     }
   ]
 }

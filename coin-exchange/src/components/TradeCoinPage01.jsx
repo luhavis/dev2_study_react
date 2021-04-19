@@ -8,6 +8,7 @@ import InlineList from "../ui/InlineList";
 import Form from "../ui/Form";
 import { Consumer as Modal } from "../ui/Modal/context";
 import Api from "../Api";
+import { createTransaction } from "../actions/transactionActions";
 
 class TradeCoinPage01 extends PureComponent {
   constructor(props) {
@@ -23,7 +24,7 @@ class TradeCoinPage01 extends PureComponent {
       name,
     };
 
-    Api.post("/transactions", formValues).then(() => closeModal());
+    createTransaction(formValues, closeModal);
   }
 
   render() {
