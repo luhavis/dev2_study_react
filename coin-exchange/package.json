@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "mockserver": "json-server --watch --delay 500 -H 0.0.0.0 -p 4000 mock/db.json",
+    "mockserver": "json-server --watch --delay 500 -H 0.0.0.0 -p 4000 mock/create.json",
     "errorserver": "node mock/fake.js"
   },
   "eslintConfig": {
