@@ -5,6 +5,7 @@ import { SET_TRANSACTION_LIST } from "../actions/transactionActions";
 import thunk from "redux-thunk";
 import notificationEffects from "../middlewares/notificationEffects";
 import transactionEffects from "../middlewares/transactionEffects";
+import { middleware as reduxPackMiddleware } from "redux-pack";
 
 const customMiddleware = (store) => (nextRunner) => (action) => {
   console.log("액션 개체", action);
@@ -50,6 +51,11 @@ export default (initState) =>
     //applyMiddleware(customMiddleware1, customMiddleware2),
     //composeWithDevTools(applyMiddleware(thunk))
     composeWithDevTools(
-      applyMiddleware(thunk, notificationEffects, transactionEffects)
+      applyMiddleware(
+        thunk,
+        reduxPackMiddleware,
+        notificationEffects,
+        transactionEffects
+      )
     )
   );
