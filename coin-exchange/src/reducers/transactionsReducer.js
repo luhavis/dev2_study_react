@@ -11,10 +11,11 @@ const initState = {
   entities: {},
   loading: false,
   hasError: false,
+  pagination: {},
 };
 
 export default (state = initState, action) => {
-  const { type, payload } = action;
+  const { type, payload, meta } = action;
 
   switch (type) {
     case FETCH_TRANSACTION_LIST: {
@@ -28,6 +29,7 @@ export default (state = initState, action) => {
         // case SET_TRANSACTION_LIST와 유사
         success: (prevState) => {
           const { data } = payload;
+          const { pageNumber, pageSize } = meta || {};
           const ids = data.map((entity) => entity["id"]);
           const entities = data.reduce(
             (finalEntities, entity) => ({
@@ -42,6 +44,10 @@ export default (state = initState, action) => {
             entities,
             loading: false,
             hasError: false,
+            pagination: {
+              number: pageNumber,
+              size: pageSize,
+            },
           };
         },
         // case SET_ERROR와 유사
