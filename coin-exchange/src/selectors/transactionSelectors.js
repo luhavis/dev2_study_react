@@ -1,31 +1,42 @@
 import { createSelector } from "reselect";
+import createSelectors from "../lib/createSelectors";
 
-import {
-  FETCH_TRANSACTION_LIST,
-  CREATE_TRANSACTION,
-} from "../actions/transactionPackActions";
+export const {
+  resourceSelector: transactionsSelector,
+  entitiesSelector: transactionEntitiesSelector,
+  pagesSelector: transactionPagesSelector,
+  collectionSelector: transactionListSelector,
+  collectionLoadingStateSelector: transactionListLoadingStateSelector,
+  createLoadingStateSelector: transactionCreateLoadingStateSelector,
+  paginationSelector,
+} = createSelectors("transactions");
 
-export const transactionsSelector = (state) => state.transactions;
+// import {
+//   FETCH_TRANSACTION_LIST,
+//   CREATE_TRANSACTION,
+// } from "../actions/transactionPackActions";
 
-// export const transactionListSelector = (state) => {
-//   const { ids, entities } = transactionsSelector(state);
-//   return ids.map((id) => entities[id]);
-// };
+// export const transactionsSelector = (state) => state.transactions;
 
-export const transactionListSelector = createSelector(
-  [transactionsSelector],
-  (transactions) => {
-    const { entities, ids } = transactions;
-    return ids.map((id) => entities[id]);
-  }
-);
+// // export const transactionListSelector = (state) => {
+// //   const { ids, entities } = transactionsSelector(state);
+// //   return ids.map((id) => entities[id]);
+// // };
 
-export const loadingStateSelector = (state) =>
-  transactionsSelector(state).loadingState;
-export const errorStateSelector = (state) =>
-  transactionsSelector(state).errorState;
+// export const transactionListSelector = createSelector(
+//   [transactionsSelector],
+//   (transactions) => {
+//     const { entities, ids } = transactions;
+//     return ids.map((id) => entities[id]);
+//   }
+// );
 
-export const transactionListLoadingStateSelector = (state) =>
-  loadingStateSelector(state)[FETCH_TRANSACTION_LIST];
-export const transactionCreateLoadingStateSelector = (state) =>
-  loadingStateSelector(state)[CREATE_TRANSACTION];
+// export const loadingStateSelector = (state) =>
+//   transactionsSelector(state).loadingState;
+// export const errorStateSelector = (state) =>
+//   transactionsSelector(state).errorState;
+
+// export const transactionListLoadingStateSelector = (state) =>
+//   loadingStateSelector(state)[FETCH_TRANSACTION_LIST];
+// export const transactionCreateLoadingStateSelector = (state) =>
+//   loadingStateSelector(state)[CREATE_TRANSACTION];
