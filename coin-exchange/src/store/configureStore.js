@@ -6,6 +6,8 @@ import thunk from "redux-thunk";
 import notificationEffects from "../middlewares/notificationEffects";
 import transactionEffects from "../middlewares/transactionEffects";
 import { middleware as reduxPackMiddleware } from "redux-pack";
+import searchFilterEffects from "../middlewares/searchFilterEffects";
+import routerEffects from "../middlewares/routerEffects";
 
 const customMiddleware = (store) => (nextRunner) => (action) => {
   console.log("액션 개체", action);
@@ -55,7 +57,9 @@ export default (initState) =>
         thunk,
         reduxPackMiddleware,
         notificationEffects,
-        transactionEffects
+        transactionEffects,
+        searchFilterEffects,
+        routerEffects
       )
     )
   );

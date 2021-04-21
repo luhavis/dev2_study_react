@@ -2,7 +2,10 @@ import Api from "../Api";
 import createActions from "../lib/createActions";
 
 const { collection, create, reset } = createActions("transactions");
+export const resetTransactionList = reset;
 export const FETCH_TRANSACTION_LIST = "transaction/FETCH_TRANSACTION_LIST";
+export const FETCH_TRANSACTION = "transaction/FETCH_TRANSACTION";
+export const UPDATE_TRANSACTION = "transaction/UPDATE_TRANSACTION";
 export const CREATE_TRANSACTION = "transaction/CREATE_TRANSACTION";
 const PAGE_SIZE = 10;
 

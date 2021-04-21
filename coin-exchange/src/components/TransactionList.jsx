@@ -16,18 +16,18 @@ class TransactionList extends PureComponent {
   //   loading: true,
   // };
 
-  componentDidMount() {
-    // axios
-    //   .get("http://localhost:4000/transactions", { params: { code: "BTC" } })
-    //   .then((response) => this.setState({ transactions: response.data }));
-    // Api.get("http://localhost:4000/transactions", {
-    //   params: { code: "BTC" },
-    // }).then((response) => this.setState({ transactions: response.data }));
-    // Api.get("/transactions").then(({ data }) => {
-    //   this.props.setTransactionList(data);
-    // });
-    this.props.requestTransactionList();
-  }
+  // componentDidMount() {
+  //   // axios
+  //   //   .get("http://localhost:4000/transactions", { params: { code: "BTC" } })
+  //   //   .then((response) => this.setState({ transactions: response.data }));
+  //   // Api.get("http://localhost:4000/transactions", {
+  //   //   params: { code: "BTC" },
+  //   // }).then((response) => this.setState({ transactions: response.data }));
+  //   // Api.get("/transactions").then(({ data }) => {
+  //   //   this.props.setTransactionList(data);
+  //   // });
+  //   this.props.requestTransactionList();
+  // }
 
   render() {
     // const { transactions, loading } = this.props;

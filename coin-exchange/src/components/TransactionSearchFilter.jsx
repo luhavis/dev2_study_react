@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import InlineList from "../ui/InlineList";
 import Button from "../ui/Button";
@@ -20,7 +21,7 @@ class TransactionSearchFilter extends PureComponent {
     //   setTransactionList(data)
     // );
 
-    const { requestTransactionList, setFilter } = this.props;
+    const { requestTransactionList, setFilter, history } = this.props;
     // const cleanedParams = Object.entries(params)
     //   .filer(([key, value]) => value !== "")
     //   .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
@@ -29,8 +30,14 @@ class TransactionSearchFilter extends PureComponent {
       .filter((entries) => entries[1] !== "")
       .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
-    requestTransactionList(cleanedParams);
-    setFilter(cleanedParams);
+    // requestTransactionList(cleanedParams);
+    // setFilter(cleanedParams);
+
+    const querystring = Object.entries(params)
+      .filter((entries) => !!entries[1])
+      .map(([key, value]) => `${key}=${value}`)
+      .join("&");
+    history.push(`/?${querystring}`);
   }
 
   render() {
@@ -84,4 +91,4 @@ TransactionSearchFilter.propTypes = {
   setFilter: PropTypes.func,
 };
 
-export default TransactionSearchFilter;
+export default withRouter(TransactionSearchFilter);

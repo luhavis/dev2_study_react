@@ -1,4 +1,4 @@
-import { SET_FILTER } from "../actions/searchFilterReducer";
+import { SET_FILTER } from "../actions/searchFilterActions";
 
 const initState = {
   params: {},
