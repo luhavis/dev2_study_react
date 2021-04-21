@@ -10,10 +10,10 @@ const createData = (index) => {
         id: `DOIT${index}`,
         code: "DOIT",
         name: "두잇코인",
-        totalPrice: getRandomNumber(10000000, 80000000),
-        currentPrice: getRandomNumber(20000, 2500000),
-        amount: getRandomNumber(1, 150),
-        dateTime: "2019/01/20 02:32:21",
+        totalPrice: getRandomNumber(10000000, 800000000),
+        currentPrice: getRandomNumber(20000, 25000),
+        amount: getRandomNumber(1, 30),
+        datetime: "2019/01/20 08:23:22",
       };
     }
     case 2: {
@@ -21,21 +21,21 @@ const createData = (index) => {
         id: `ETH${index}`,
         code: "ETH",
         name: "이더리움",
-        totalPrice: getRandomNumber(10000000, 70000000),
-        currentPrice: getRandomNumber(200000, 2500000),
-        amount: getRandomNumber(1, 345),
-        dateTime: "2019/01/12 02:32:21",
+        totalPrice: getRandomNumber(100000000, 500000000),
+        currentPrice: getRandomNumber(400000, 600000),
+        amount: getRandomNumber(100, 1000),
+        datetime: "2019/01/20 08:23:22",
       };
     }
-    case 3: {
+    default: {
       return {
         id: `BTX${index}`,
         code: "BTX",
         name: "비트코인",
-        totalPrice: getRandomNumber(10000000, 100000000),
-        currentPrice: getRandomNumber(200000, 2500000),
-        amount: getRandomNumber(1, 700),
-        dateTime: "2019/01/12 04:21:11",
+        totalPrice: getRandomNumber(100000000000, 200000000000),
+        currentPrice: getRandomNumber(10000000, 40000000),
+        amount: getRandomNumber(0, 10),
+        datetime: "2019/01/20 08:23:22",
       };
     }
   }
@@ -43,7 +43,7 @@ const createData = (index) => {
 
 module.exports = function() {
   return {
-    transaction: Array(100)
+    transactions: Array(100)
       .fill("")
       .map((_, index) => createData(index)),
   };

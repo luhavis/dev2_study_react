@@ -8,6 +8,7 @@ import TransactionPagination from "./TransactionPagination";
 import axios from "axios";
 import Api from "../Api";
 import TransactionSearchFilterContainer from "../containers/TransactionSearchFilterContainer";
+import TransactionPaginationContainer from "../containers/TransactionPaginationContainer";
 
 class TransactionList extends PureComponent {
   // state = {
@@ -42,7 +43,7 @@ class TransactionList extends PureComponent {
         <Card>
           <TransactionTable transactions={transactions} isLoading={loading} />
         </Card>
-        {/* <TransactionPagination /> */}
+        <TransactionPaginationContainer />
       </div>
     );
   }
