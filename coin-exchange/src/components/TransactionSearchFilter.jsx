@@ -20,19 +20,24 @@ class TransactionSearchFilter extends PureComponent {
     //   setTransactionList(data)
     // );
 
-    const { requestTransactionList } = this.props;
+    const { requestTransactionList, setFilter } = this.props;
+    // const cleanedParams = Object.entries(params)
+    //   .filer(([key, value]) => value !== "")
+    //   .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+
     const cleanedParams = Object.entries(params)
-      .filer(([key, value]) => value !== "")
+      .filter((entries) => entries[1] !== "")
       .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
-    requestTransactionList(params);
+    requestTransactionList(cleanedParams);
+    setFilter(cleanedParams);
   }
 
   render() {
     const { initValues } = this.props;
     return (
-      // <Form onSubmit={this.handleSubmit} initValues={initValues}>
-      <Form onSubmit={(values) => Api.get("/transactions", { params: values })}>
+      <Form onSubmit={this.handleSubmit} initValues={initValues}>
+        {/* <Form onSubmit={(values) => Api.get("/transactions", { params: values })}> */}
         <Form.Consumer>
           {({ onChange, values }) => (
             <InlineList spacingBetween={2} verticalAlign="bottom">
@@ -74,6 +79,9 @@ class TransactionSearchFilter extends PureComponent {
 }
 
 // TransactionSearchFilter.propTypes = { setTransactionList: PropTypes.func };
-TransactionSearchFilter.propTypes = { requestTransactionList: PropTypes.func };
+TransactionSearchFilter.propTypes = {
+  requestTransactionList: PropTypes.func,
+  setFilter: PropTypes.func,
+};
 
 export default TransactionSearchFilter;

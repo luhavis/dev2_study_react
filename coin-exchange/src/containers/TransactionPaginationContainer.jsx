@@ -5,7 +5,9 @@ import TransactionPagination from "../components/TransactionPagination";
 const mapStateToProps = (state) => {
   const { pagination, loading, ids } = state.transactions;
   const { number, size } = pagination;
+
   return {
+    searchParams: state.searchFilterReducer.params,
     pageNumber: number || 1,
     hasNext: ids.length === size,
     loading,
