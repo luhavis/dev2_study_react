@@ -1,5 +1,6 @@
 import createReducers from "../lib/createReducers";
 import notificationReducer from "./notificationReducer";
+import routerReducer from "./routerReducer";
 import searchFilterReducer from "./searchFilterReducer";
 import transactions from "./transactionsReducer";
 
@@ -9,4 +10,5 @@ export default {
   ...apiReducers,
   notificationReducer,
   searchFilterReducer,
+  routerReducer,
 };
