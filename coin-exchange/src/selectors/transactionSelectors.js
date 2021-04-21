@@ -1,3 +1,5 @@
+import { createSelector } from "reselect";
+
 import {
   FETCH_TRANSACTION_LIST,
   CREATE_TRANSACTION,
@@ -5,10 +7,18 @@ import {
 
 export const transactionsSelector = (state) => state.transactions;
 
-export const transactionListSelector = (state) => {
-  const { ids, entities } = transactionsSelector(state);
-  return ids.map((id) => entities[id]);
-};
+// export const transactionListSelector = (state) => {
+//   const { ids, entities } = transactionsSelector(state);
+//   return ids.map((id) => entities[id]);
+// };
+
+export const transactionListSelector = createSelector(
+  [transactionsSelector],
+  (transactions) => {
+    const { entities, ids } = transactions;
+    return ids.map((id) => entities[id]);
+  }
+);
 
 export const loadingStateSelector = (state) =>
   transactionsSelector(state).loadingState;

@@ -12,8 +12,6 @@ import {
 const initState = {
   ids: [],
   entities: {},
-  loading: false,
-  hasError: false,
   loadingState: {
     [CREATE_TRANSACTION]: false,
     [FETCH_TRANSACTION_LIST]: false,

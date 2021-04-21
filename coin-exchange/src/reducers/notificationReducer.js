@@ -1,7 +1,7 @@
-const {
+import {
   SHOW_NOTIFICATION,
   HIDE_NOTIFICATION,
-} = require("../actions/notificationActions");
+} from "../actions/notificationActions";
 
 const initState = {
   message: "",
