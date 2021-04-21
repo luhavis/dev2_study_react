@@ -7,14 +7,24 @@ import {
 // import { requestTransactionList } from "../actions/transactionActions";
 
 import TransactionList from "../components/TransactionList";
+import {
+  loadingStateSelector,
+  transactionListSelector,
+  transactionListLoadingStateSelector,
+} from "../selectors/transactionSelectors";
 
 const mapStateToProps = (state) => {
   // const { ids, entities, loading } = state.transactions;
-  const { ids, entities, loadingState } = state.transactions;
-  const loading = loadingState[FETCH_TRANSACTION_LIST];
-  const transactions = ids.map((id) => entities[id]);
+  // const { ids, entities, loadingState } = state.transactions;
+  // const loading = loadingState[FETCH_TRANSACTION_LIST];
+  // const transactions = ids.map((id) => entities[id]);
 
-  return { transactions, loading };
+  // return { transactions, loading };
+
+  return {
+    transactions: transactionListSelector(state),
+    loading: transactionListLoadingStateSelector(state),
+  };
 };
 const mapDispatchToProps = {
   // setTransactionList,
